@@ -1,0 +1,56 @@
+const LINE_W = 50;
+const BALL_W = 8;
+const COUNT = 50;
+const SPACING = 14;
+
+const illo = new Zdog.Illustration({
+  element: "#canvas",
+  dragRotate: true,
+  resize: "fullscreen"
+});
+
+const Line = new Zdog.Shape({
+  path: [{ x: LINE_W }, { x: -LINE_W }],
+  stroke: 2,
+  color: "#ffd460"
+});
+
+const Dot = new Zdog.Shape({
+  stroke: BALL_W * 2,
+  color: "#ea5455"
+});
+
+for (let i = 0; i < COUNT; ++i) {
+  const line = Line.copy({
+    addTo: illo,
+    rotate: {
+      y: Zdog.TAU / COUNT * 2 * i
+    },
+    translate: {
+      y: -(COUNT / 2 * SPACING) + i * SPACING
+    }
+  });
+
+  Dot.copy({
+    addTo: line,
+    translate: {
+      x: -(BALL_W + LINE_W + 10)
+    }
+  });
+
+  Dot.copy({
+    addTo: line,
+    translate: {
+      x: BALL_W + LINE_W+10
+    }
+  });
+}
+
+illo.updateRenderGraph();
+
+const animate = () => {
+  illo.rotate.y += 0.02;
+  illo.updateRenderGraph();
+  requestAnimationFrame(animate);
+}
+animate();
