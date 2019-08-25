@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#canvas {
+  background: #2d4059;
+}
+
+p{
+  position: absolute;
+  margin: 10px;
+  font-family: Calibri, sans-serif;
+  right: 0;
+  
+  &, a{
+      color: #b1592c;
+  }
+  &.top{
+      top:0;
+  }
+  &.bottom{
+      bottom:0;
+  }
+}
