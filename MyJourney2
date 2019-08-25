@@ -1,0 +1,5 @@
+canvas#canvas
+p.top (drag to rotate)
+p.bottom
+  | By 
+  a(href='https://twitter.com/cthmsst') Daniela Gal
